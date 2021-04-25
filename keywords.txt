@@ -1,0 +1,43 @@
+############################################################
+# Syntax Coloring Map ROG_32x16_DotMatrixLEDPanel library
+############################################################
+
+############################################################
+# Datatypes (KEYWORD1)
+############################################################
+ROG_32x16_DotMatrixLEDPanel		KEYWORD1
+
+############################################################
+# Methods and Functions (KEYWORD2)
+############################################################
+begin							KEYWORD2
+drawPixel						KEYWORD2
+startWrite						KEYWORD2
+writePixel						KEYWORD2
+endWrite						KEYWORD2
+ShinonomeFNT_SD_init			KEYWORD2
+shnmFntBegin					KEYWORD2
+shnmFntStrConv					KEYWORD2
+shnmFntStrConvWithColor			KEYWORD2
+shnmFntDbg_FontDisp				KEYWORD2
+shnmFntWrite					KEYWORD2
+shnmFntWriteWithColor			KEYWORD2
+shnmFntPrint					KEYWORD2
+shnmFntPrintWithColor			KEYWORD2
+shnmFntScroll					KEYWORD2
+shnmFntScrollWithColor			KEYWORD2
+drawGIMP_CSourceImageDump		KEYWORD2
+
+############################################################
+# Instances (KEYWORD2)
+############################################################
+
+############################################################
+# Constants (LITERAL1)
+############################################################
+DOT_PANEL_WIDTH		LITERAL1
+DOT_PANEL_HEIGHT	LITERAL1
+DOT_BLACK			LITERAL1
+DOT_RED				LITERAL1
+DOT_GREEN			LITERAL1
+DOT_ORANGE			LITERAL1
