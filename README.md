@@ -97,8 +97,8 @@ Adafruit GFX Libraryにあるメソッドで動作確認済みのメソッドの
 - [Adafruit GFX Library](https://github.com/adafruit/Adafruit-GFX-Library)
 - [ESP32_SD_ShinonomeFNT](https://github.com/mgo-tec/ESP32_SD_ShinonomeFNT)
 - [ESP32_SD_UTF8toSJIS](https://github.com/mgo-tec/ESP32_SD_UTF8toSJIS)
-- [ESP32_SD_EasyWebSocket](https://github.com/mgo-tec/ESP32_SD_EasyWebSocket)※一部のサンプルスケッチのみに使用。
-
+- [ESP32_SD_EasyWebSocket](https://github.com/mgo-tec/ESP32_SD_EasyWebSocket) ※一部のサンプルスケッチのみに使用。
+- [M5Stack 電光掲示板をスマホでリアルタイムコントロールしてみた](https://www.mgo-tec.com/blog-entry-m5stack-websocket-message-board-esp32.html) ※一部のサンプルスケッチのみに使用。
 
 # Breakout board
 キット化検討中。時期・詳細未定。
@@ -106,7 +106,8 @@ Adafruit GFX Libraryにあるメソッドで動作確認済みのメソッドの
 基板Cadデータも今後公開するかも(?)
 
 [Tweetリンク：モバブで動く電光掲示板第2弾！](https://twitter.com/sandarkR/status/1379369349589385220?s=20)
-[モバブで動くポータブル電光掲示板2：製作記(?)](https://twitter.com/i/events/1379414496079310849?s=20)
+
+[Twitterモーメント：モバブで動くポータブル電光掲示板2：製作記(?)](https://twitter.com/i/events/1379414496079310849?s=20)
 
 
 
