@@ -4,6 +4,7 @@
 #include "kaomoji_64x16_01_Csource.c"
 #include "kaomoji_64x16_02_mabataki_01.c"
 #include "kaomoji_64x16_02_mabataki_02.c"
+#include "arrow_animation.c"
 
 
 /*** ROG_32x16_DotMatrixLEDPanel *************************/
@@ -22,7 +23,7 @@ const uint8_t DR_PIN  = 22;  // 11p
 const uint8_t ALE_PIN = 23;  // 12p
 
 const uint8_t num_panel = 2;  // number of panel
-const uint8_t led_width  = 32 * num_panel;
+const uint16_t led_width = 32 * num_panel;
 const uint8_t led_height = 16;
 
 /* Limit number of characters to display */
@@ -149,11 +150,13 @@ bool disp = true;             // display flag
 bool play_all_demo = false;   // play all demo flag
 boolean state = 1;      // 0: Setting  1: Display
 uint8_t demo_mode = 1;  // demo number
-uint8_t demo_num = 5;   // number of demo
+uint8_t demo_num = 6;   // number of demo
 uint16_t tWidth = 0;        // text width
-int16_t tX0 = led_width;   // the origin of X axis of text
+int16_t tX0 = led_width;    // the origin of X axis of text
 uint16_t scrollDelay = 20;  // default : 20
 String displayText = "それぞれ[r赤][g緑][o橙]デフォルトカラーで表示されます。";  // 23 characters
+int16_t iX0 = -ARROW_ANIMATION_WIDTH;  // the origin of X axix of image
+uint16_t dot_color = DOT_RED;  // color
 /*********************************************************************************************/
 
 
@@ -442,20 +445,94 @@ void loop() {
         }
         break;
         
-//      case 6:  // fill screen
+        case 6: // arrow animation
+          if (disp == true) {
+            if (scl_pause == false) {
+              iX0++;
+              matrix.fillScreen(DOT_BLACK);
+              matrix.drawGIMP_CSourceImageDump(iX0,  // x axis
+                                               4,  // y axis
+                                               ARROW_ANIMATION_pixel_data,
+                                               ARROW_ANIMATION_WIDTH,
+                                               ARROW_ANIMATION_HEIGHT
+                                              );
+              delay(10*5);
+            
+              iX0++;
+              if(iX0 > led_width + ARROW_ANIMATION_WIDTH) iX0 = -ARROW_ANIMATION_WIDTH;
+
+              if (play_all_demo) {
+                demo_mode++;
+                
+                if (demo_mode > demo_num) demo_mode = 1;
+                Serial.print("mode changed -> ");
+                Serial.println(demo_mode);
+              }
+            }
+          }
+          break;
+          
+//      case 7:  // fill screen
+//          /* ### Caution ###                                             */
+//          /* Please connect power supply with sufficient output capacity */
+//          matrix.fillScreen(DOT_RED);     // 2 panels : Current = 1.56A
+//          delay(3000);
+//          matrix.fillScreen(DOT_BLACK);
+//          matrix.fillScreen(DOT_GREEN);   // 2 panels : Current = 1.89A
+//          delay(3000);
+//          matrix.fillScreen(DOT_BLACK);
+//          matrix.fillScreen(DOT_ORANGE);  // 2 panels : Current = 3.10A
+//          delay(3000);
+//          matrix.fillScreen(DOT_BLACK);
+//          delay(3000);
+//
+//          if (play_all_demo) {
+//            demo_mode++;
+//            
+//            if (demo_mode > demo_num) demo_mode = 1;
+//            Serial.print("mode changed -> ");
+//            Serial.println(demo_mode);
+//          }
+//        break;
+
+//        case 8: // Lchika animation
 //        /* ### Caution ###                                             */
 //        /* Please connect power supply with sufficient output capacity */
-//        matrix.fillScreen(DOT_RED);     // 2 panels : Current = 1.56A
-//        delay(3000);
-//        matrix.fillScreen(DOT_BLACK);
-//        matrix.fillScreen(DOT_GREEN);   // 2 panels : Current = 1.89A
-//        delay(3000);
-//        matrix.fillScreen(DOT_BLACK);
-//        matrix.fillScreen(DOT_ORANGE);  // 2 panels : Current = 3.10A
-//        delay(3000);
-//        matrix.fillScreen(DOT_BLACK);
-//        delay(3000);
-//        break;
+//          if (disp == true) {
+//            for(int y=0; y<led_height; y+=2) {
+//              for(int x=0; x<led_width; x++) {
+//                matrix.drawPixel(x, y, DOT_BLACK);
+//                matrix.drawPixel(x, y, dot_color);
+//                delay(3);
+//              }
+//              
+//              for(int x=led_width; x>=0; x--) {
+//                matrix.drawPixel(x, y+1, DOT_BLACK);
+//                matrix.drawPixel(x, y+1, dot_color);
+//                delay(3);
+//              }
+//            }
+//          
+//            if(dot_color == DOT_RED) {
+//              dot_color = DOT_GREEN;
+//            } else if (dot_color == DOT_GREEN) {
+//              dot_color = DOT_ORANGE;
+//            } else if (dot_color == DOT_ORANGE) {
+//              dot_color = DOT_BLACK;
+//            } else if (dot_color == DOT_BLACK) {
+//              dot_color = DOT_RED;
+//            }
+//
+//            if (play_all_demo) {
+//              demo_mode++;
+//              
+//              if (demo_mode > demo_num) demo_mode = 1;
+//              Serial.print("mode changed -> ");
+//              Serial.println(demo_mode);
+//            }
+//          }
+//          break;
+        
     }
   }
 }
