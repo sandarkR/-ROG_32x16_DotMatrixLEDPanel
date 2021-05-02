@@ -18,7 +18,7 @@ const uint8_t DR_PIN  = 22;  // 11p
 const uint8_t ALE_PIN = 23;  // 12p
 
 const uint8_t num_panel = 2;  // number of panel
-const uint8_t led_width  = 32 * num_panel;
+const uint16_t led_width = 32 * num_panel;
 const uint8_t led_height = 16;
 
 /* Limit number of characters to display */
