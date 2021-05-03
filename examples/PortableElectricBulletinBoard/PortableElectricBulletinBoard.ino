@@ -459,14 +459,17 @@ void loop() {
               delay(10*5);
             
               iX0++;
-              if(iX0 > led_width + ARROW_ANIMATION_WIDTH) iX0 = -ARROW_ANIMATION_WIDTH;
-
-              if (play_all_demo) {
-                demo_mode++;
-                
-                if (demo_mode > demo_num) demo_mode = 1;
-                Serial.print("mode changed -> ");
-                Serial.println(demo_mode);
+              
+              if(iX0 > led_width + ARROW_ANIMATION_WIDTH) {
+                iX0 = -ARROW_ANIMATION_WIDTH;
+                  
+                if (play_all_demo) {
+                  demo_mode++;
+                  
+                  if (demo_mode > demo_num) demo_mode = 1;
+                  Serial.print("mode changed -> ");
+                  Serial.println(demo_mode);
+                }
               }
             }
           }
@@ -565,7 +568,7 @@ void WebSocket_handshake() {
     html_str3 += "Default Font Color\r\n";
     html_str3 += "<br>\r\n";
     html_str3 += ews.EWS_On_Momentary_Button("Red", "Red", 80, 25, 15, "#000000", "#ff0000");
-    html_str3 += ews.EWS_On_Momentary_Button("Orange", "Orange", 80, 25, 15, "#000000", "#FFa500");
+    html_str3 += ews.EWS_On_Momentary_Button("Orange", "Orange", 80, 25, 15, "#000000", "#ff4500");
     html_str3 += ews.EWS_On_Momentary_Button("Green", "Green", 80, 25, 15, "#000000", "#00FF00");
     html_str3 += "<br><br>\r\n";
     html_str3 += "Play All Demo";
@@ -575,12 +578,12 @@ void WebSocket_handshake() {
     html_str3 += "Demo Mode";
     html_str3 += "<br>\r\n";
     html_str3 += ews.EWS_On_Momentary_Button("DemoMode1", "Mode1", 80, 25, 15, "#000000", "#ff0000");
-    html_str3 += ews.EWS_On_Momentary_Button("DemoMode2", "Mode2", 80, 25, 15, "#000000", "#FFa500");
+    html_str3 += ews.EWS_On_Momentary_Button("DemoMode2", "Mode2", 80, 25, 15, "#000000", "#ff4500");
     html_str3 += ews.EWS_On_Momentary_Button("DemoMode3", "Mode3", 80, 25, 15, "#000000", "#00FF00");
     html_str3 += "<br>\r\n";
     html_str3 += ews.EWS_On_Momentary_Button("DemoMode4", "Mode4", 80, 25, 15, "#000000", "#ff0000");
-    html_str3 += ews.EWS_On_Momentary_Button("DemoMode5", "Mode5", 80, 25, 15, "#000000", "#FFa500");
-//    html_str3 += ews.EWS_On_Momentary_Button("DemoMode6", "Mode6", 80, 25, 15, "#000000", "#00FF00");
+    html_str3 += ews.EWS_On_Momentary_Button("DemoMode5", "Mode5", 80, 25, 15, "#000000", "#ff4500");
+    html_str3 += ews.EWS_On_Momentary_Button("DemoMode6", "Mode6", 80, 25, 15, "#000000", "#00ff00");
     html_str3 += "<br><br>\r\n";
     html_str4 += "Scroll Delay　\r\n";
     html_str4 += "<br>\r\n";
@@ -655,9 +658,9 @@ void WebSocket_txt_receive() {
                   demo_mode = 5;
                   break;
                   
-//                case '6':
-//                  demo_mode = 6;
-//                  break;
+                case '6':
+                  demo_mode = 6;
+                  break;
               }
               break;
 
