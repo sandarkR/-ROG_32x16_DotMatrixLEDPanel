@@ -101,7 +101,13 @@ Adafruit GFX Libraryにあるメソッドで動作確認済みのメソッドの
 - [M5Stack 電光掲示板をスマホでリアルタイムコントロールしてみた](https://www.mgo-tec.com/blog-entry-m5stack-websocket-message-board-esp32.html) ※一部のサンプルスケッチのみに使用。
 
 # Breakout board
-キット化検討中。時期・詳細未定。
+キット化を本格的に検討はじめました。まだ、準備中ですが、購入を希望される方は現時点ではTwitterなどでDMをください！
+
+- [キットの詳細について（準備中）](https://t.co/D9qhNwetGZ?amp=1)
+
+- [NT金沢2021での販売の検討について](https://twitter.com/sandarkR/status/1401406649265393666?s=20)
+
+- [Twitter sandark(@sandarkR)](https://twitter.com/sandarkR)
 
 基板Cadデータも今後公開するかも(?)
 
